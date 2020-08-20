@@ -108,13 +108,28 @@ function getUserName() {
 }
 
 function getEmail() {
+    if (typeof(document.registration.email.value) === 'undefined') {
+        return '';
+    } else {
+        return document.registration.email.value;
+    }   
     // TODO
 }
 
 function getPassword() {
+    if (typeof(document.registration.password.value) === 'undefined') {
+        return '';
+    } else {
+        return document.registration.password.value;
+    }   
     // TODO
 }
 
 function getConfirmPassword() {
+    if (typeof(document.registration.confirmpassword.value) === 'undefined') {
+        return '';
+    } else {
+        return document.registration.confirmpassword.value;
+    }   
     // TODO
 }
