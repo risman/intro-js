@@ -1,4 +1,4 @@
-var registeredUsers = []; // this array stores valid usernames until the next pageload
+var registeredUsers = ['user1', 'user2', 'Rishi', 'risman']; // this array stores valid usernames until the next pageload
 
 function validateForm(e){
     e.preventDefault(); // stop the submit button from refreshing the page
@@ -10,7 +10,8 @@ function validateForm(e){
 
     if (validateUsername() && validateEmail() && validatePassword()) {
         var _newUser = getUserName();   
-        // add code to update registeredUsers array with new user and call render function
+        registeredUsers.push(_newUser); // add code to update registeredUsers array with new user 
+        renderRegisteredUsers();// and call render function
         // TODO
         document.registration.reset(); // reset form input fields
     }
@@ -36,7 +37,7 @@ function validateUsername(){
 
 /**
  * this function supposely validates submitted email
- * @returns [Boolean] true when valid, false otherwise
+ * @returns [String] true when valid, false otherwise
  */
 function validateEmail(){
     var _email = getEmail();
@@ -108,7 +109,7 @@ function getUserName() {
 }
 
 function getEmail() {
-    if (typeof(document.registration.email.value) === 'undefined') {
+    if (typeof(document.registration.email) === 'undefined') {
         return '';
     } else {
         return document.registration.email.value;
@@ -126,10 +127,10 @@ function getPassword() {
 }
 
 function getConfirmPassword() {
-    if (typeof(document.registration.confirmpassword.value) === 'undefined') {
+    if (typeof(document.registration.password_confirm.value) === 'undefined') {
         return '';
     } else {
-        return document.registration.confirmpassword.value;
+        return document.registration.password_confirm.value;
     }   
     // TODO
 }
