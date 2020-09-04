@@ -11,6 +11,10 @@ function validateForm(e){
     if (validateUsername() && validateEmail() && validatePassword()) {
         var _newUser = getUserName();   
         registeredUsers.push(_newUser); // add code to update registeredUsers array with new user 
+        
+        if (registeredUsers.length > 5){
+            registeredUsers.shift();
+        }
         renderRegisteredUsers();// and call render function
         // TODO
         document.registration.reset(); // reset form input fields
@@ -134,3 +138,52 @@ function getConfirmPassword() {
     }   
     // TODO
 }
+
+
+
+var sliderEl = document.createElement('section');
+    sliderEl.classList.add('lazy', 'slider');
+    sliderEl.setAttribute('data-sizes', '50vw');
+    document.body.appendChild(sliderEl);
+
+    function addSlide(imgUrl){
+    function addSlide(imgUrl='http://placehold.it/650x300?text=1-650w'){
+        // if(typeof(imgUrl) === 'undefined') {
+        //     imgUrl = 'http://placehold.it/650x300?text=1-650w';
+        // }
+
+        var slide = document.createElement('div');
+        var slideImage = document.createElement('img');
+        slideImage.setAttribute('data-lazy', imgUrl);
+        slideImage.setAttribute('data-srcset', imgUrl);
+        slideImage.setAttribute('data-sizes', '100vw');
+        slide.appendChild(slideImage);
+        sliderEl.appendChild(slide);
+    }
+    var imgUrl = '//www.partioaitta.fi/bo-assets/binaryImages/96/klubitarjoukset-syyskuu-1500x450-35796.jpg?v=a2f7e6b30e35dcebdce0ae0d0c278e93';
+
+    addSlide(imgUrl);
+    addSlide(imgUrl);
+    addSlide();
+    addSlide();
+    addSlide(imgUrl);
+    addSlide(imgUrl);
+    addSlide(imgUrl);
+    addSlide(imgUrl);
+    addSlide(imgUrl);
+    addSlide(imgUrl);
+    addSlide();
+    addSlide();
+    addSlide(imgUrl);
+
+    $(document).ready(function(){
+        $(".lazy").slick({
+            lazyLoad: 'ondemand', // ondemand progressive anticipated
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 100,
+            arrows: true,
+            dots: true,
+        });
+    })
+})(window.jQuery)
