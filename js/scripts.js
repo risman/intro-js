@@ -1,3 +1,4 @@
+(function ($) {
 var registeredUsers = ['user1', 'user2', 'Rishi', 'risman']; // this array stores valid usernames until the next pageload
 
 function validateForm(e){
@@ -146,7 +147,7 @@ var sliderEl = document.createElement('section');
     sliderEl.setAttribute('data-sizes', '50vw');
     document.body.appendChild(sliderEl);
 
-    function addSlide(imgUrl){
+    
     function addSlide(imgUrl='http://placehold.it/650x300?text=1-650w'){
         // if(typeof(imgUrl) === 'undefined') {
         //     imgUrl = 'http://placehold.it/650x300?text=1-650w';
